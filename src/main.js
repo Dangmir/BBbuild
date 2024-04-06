@@ -11,18 +11,21 @@ import ColumnGroup from 'primevue/columngroup';   // optional
 import Row from 'primevue/row';                   // optional
 
 import './index.css'
+import ProjectView from "@/views/ProjectView.vue";
 
 
 const routes = [
     { path: '/', component: Home },
     { path: '/projects', component: Projects },
+    { path: '/projects/:id', component: ProjectView },
 ]
 
 const router = createRouter({
     history: createMemoryHistory(),
     routes,
-})
 
+})
+export default router
 const app = createApp(App)
 app.use(PrimeVue)
 app.component("DataTable",DataTable)

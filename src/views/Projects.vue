@@ -2,7 +2,6 @@
 import Dialog from 'primevue/dialog';
 import MyButton from "@/components/MyButton.vue";
 import InputText from 'primevue/inputtext';
-import {FilterMatchMode} from 'primevue/api';
 import ProjectTable from "@/components/ProjectTable.vue";
 import {ref} from "vue";
 
@@ -15,7 +14,8 @@ const visible = ref(false)
     <MyButton @click="visible = true">Добавить проект</MyButton>
   </div>
   <div class="container mx-auto border mt-3 shadow rounded-lg p-5 w-full">
-    <ProjectTable :dats="dats" :columns="[{field:'name',name:'Наименование'}]"></ProjectTable>
+    <ProjectTable :dats="dats"
+                  :columns="[{field:'name',name:'Наименование'},]"></ProjectTable>
 
   </div>
   <Dialog class="mx-auto w-full" v-model:visible="visible" modal header="Добавить проект" :style="{ width: '25rem' }">
@@ -38,13 +38,13 @@ const visible = ref(false)
 export default {
   data() {
     return {
+
       project: {
-        id: '',
         name: '',
         date: Date.now()
       },
       dats: [{
-        name: "Нежилое"
+        name: "Здание"
       },
         {
           name: "Воронеж"
