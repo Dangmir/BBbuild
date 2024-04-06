@@ -13,19 +13,21 @@ const filters = ref({
 <template>
   <DataTable v-model:filters="filters" :globalFilterFields="['name']" show-gridlines :value="dats"
              tableStyle="min-width: 50rem">
-    <InputText v-model="filters['global'].value" placeholder="Keyword Search"/>
+    <div>
+      <InputText class="p-1 m-2 border shadow pl-2" v-model="filters['global'].value" placeholder="Keyword Search"/>
+    </div>
     <Column v-for="col,i in columns" :key="i" v-bind:field="col.field" sortable :header="col.name"></Column>
   </DataTable>
 </template>
 <script>
 export default {
-  props:{
-    columns:{
-      type:Array,
-      required:true
+  props: {
+    columns: {
+      type: Array,
+      required: true
     },
-    dats:{
-      type:Array
+    dats: {
+      type: Array
     }
   }
 }

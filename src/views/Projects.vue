@@ -14,8 +14,8 @@ const visible = ref(false)
   <div class="container mx-auto shadow border mt-3 flex  items-center p-5 rounded-lg">
     <MyButton @click="visible = true">Добавить проект</MyButton>
   </div>
-  <ProjectTable :dats="dats" :columns="[{field:'name',name:'Наименование'}]"></ProjectTable>
   <div class="container mx-auto border mt-3 shadow rounded-lg p-5 w-full">
+    <ProjectTable :dats="dats" :columns="[{field:'name',name:'Наименование'}]"></ProjectTable>
 
   </div>
   <Dialog class="mx-auto w-full" v-model:visible="visible" modal header="Добавить проект" :style="{ width: '25rem' }">
