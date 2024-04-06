@@ -3,7 +3,7 @@
 </script>
 
 <template>
-  {{this.$route.params}}
+  {{this.$route.params.id}}
 <p>PIDOR</p>
 </template>
 

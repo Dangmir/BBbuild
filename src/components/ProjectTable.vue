@@ -32,7 +32,8 @@ export default {
   },
 }
 const onRowSelect = (event) => {
-  router.push(`/projects/${event.data.value}`)
+  console.log(event)
+  router.push(`/projects/${event.data.name}`)
 }
 </script>
 <style scoped>

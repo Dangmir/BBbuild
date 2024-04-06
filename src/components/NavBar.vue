@@ -1,5 +1,6 @@
 <script setup>
 
+import MyButton from "@/components/MyButton.vue";
 </script>
 
 <template>
@@ -9,6 +10,13 @@
       <div class="max-md:hidden flex font-semibold gap-4">
         <RouterLink to="/">Главная</RouterLink>
         <RouterLink to="/projects">Проекты</RouterLink>
+      </div>
+      <div class="flex ml-auto" >
+      <MyButton @click="signOutFromAcc">Выйти</MyButton>
+      </div>
+      <div class="flex ml-auto">
+        <RouterLink to="/register">Регистрация</RouterLink>
+        <RouterLink to="/login">Войти</RouterLink>
       </div>
       <button @click="openNavBar" class="md:hidden ml-auto mr-4 text-2xl">
         =
@@ -22,15 +30,25 @@
   </div>
 </template>
 <script>
+import {getAuth,signOut} from "firebase/auth"
 export default {
+
   data(){
     return{
       isOpenNav:false,
+      auth:getAuth()
     }
   },
   methods:{
     openNavBar(){
       this.isOpenNav = !this.isOpenNav
+    },
+    signOutFromAcc(){
+      signOut(this.auth).then((d)=>{
+        console.log(d)
+      }).catch((e)=>{
+        console.log(e)
+      })
     }
   }
 }</script>
