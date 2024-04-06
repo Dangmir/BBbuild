@@ -11,7 +11,7 @@ const filters = ref({
 </script>
 
 <template>
-  <DataTable v-model:filters="filters" :globalFilterFields="['name']" show-gridlines style="p-5" :value="dats"
+  <DataTable v-model:filters="filters" :globalFilterFields="['name']" show-gridlines :value="dats"
              tableStyle="min-width: 50rem">
     <InputText v-model="filters['global'].value" placeholder="Keyword Search"/>
     <Column v-for="col,i in columns" :key="i" v-bind:field="col.field" sortable :header="col.name"></Column>

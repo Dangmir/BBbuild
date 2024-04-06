@@ -7,16 +7,6 @@ import ProjectTable from "@/components/ProjectTable.vue";
 import {ref} from "vue";
 
 const visible = ref(false)
-const dats = ref([{
-  name: "Нежилое"
-},
-  {
-    name: "Воронеж"
-  }, {
-    name: "Азбука"
-  }, {
-    name: "Нежилое"
-  }])
 
 </script>
 
@@ -24,7 +14,7 @@ const dats = ref([{
   <div class="container mx-auto shadow border mt-3 flex  items-center p-5 rounded-lg">
     <MyButton @click="visible = true">Добавить проект</MyButton>
   </div>
-  <ProjectTable :dats="dats" :columns="[{filed:'name',name:'Наименование'}]"></ProjectTable>
+  <ProjectTable :dats="dats" :columns="[{field:'name',name:'Наименование'}]"></ProjectTable>
   <div class="container mx-auto border mt-3 shadow rounded-lg p-5 w-full">
 
   </div>
@@ -52,12 +42,22 @@ export default {
         id: '',
         name: '',
         date: Date.now()
-      }
+      },
+      dats: [{
+        name: "Нежилое"
+      },
+        {
+          name: "Воронеж"
+        }, {
+          name: "Азбука"
+        }, {
+          name: "Нежилое"
+        }]
     }
   },
   methods: {
     addProject() {
-      console.log(this.project.name)
+      console.log(this.dats)
     }
   }
 }
